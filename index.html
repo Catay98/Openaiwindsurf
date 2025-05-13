@@ -67,6 +67,27 @@
             color: #ffffff; /* 鼠标悬停时颜色变白 */
             text-decoration: underline;
         }
+
+        /* 翻译切换按钮样式 */
+        .translate-btn-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 100;
+        }
+        .translate-btn {
+            background-color: #2563eb; /* 蓝色 */
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem; /* rounded-md */
+            cursor: pointer;
+            border: none;
+            font-size: 0.875rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        .translate-btn:hover {
+            background-color: #1d4ed8; /* 深蓝色 */
+        }
     </style>
 </head>
 <body class="bg-gray-100 text-gray-800">
@@ -74,8 +95,10 @@
     <header class="bg-white shadow-md sticky top-0 z-50">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <div>
-                <h1 class="text-3xl font-bold text-blue-600">OpenAI <span class="text-green-500">x</span> Windsurf</h1>
-                <p class="text-sm text-gray-600">追踪收购事件的最新动态与深度分析</p>
+                <h1 class="text-3xl font-bold text-blue-600">
+                    <span data-lang-key="headerTitlePart1">OpenAI</span> <span class="text-green-500">x</span> <span data-lang-key="headerTitlePart2">Windsurf</span>
+                </h1>
+                <p class="text-sm text-gray-600" data-lang-key="headerSubtitle">追踪收购事件的最新动态与深度分析</p>
             </div>
             <button id="mobileNavToggle" class="md:hidden mobile-nav-toggle p-2 rounded-md text-gray-600 hover:text-blue-600 hover:bg-gray-100">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -84,12 +107,12 @@
             </button>
             <nav class="main-nav hidden md:block">
                 <ul class="flex space-x-4 md:space-x-6">
-                    <li><a href="#latest-updates" class="nav-link text-gray-600 hover:text-blue-600 transition duration-300">最新动态</a></li>
-                    <li><a href="#analysis-insights" class="nav-link text-gray-600 hover:text-blue-600 transition duration-300">分析解读</a></li>
-                    <li><a href="#official-statements" class="nav-link text-gray-600 hover:text-blue-600 transition duration-300">官方声音</a></li>
-                    <li><a href="#community-buzz" class="nav-link text-gray-600 hover:text-blue-600 transition duration-300">社区热议</a></li>
-                    <li><a href="#about" class="nav-link text-gray-600 hover:text-blue-600 transition duration-300">关于本站</a></li>
-                    <li><a href="#contact" class="nav-link text-gray-600 hover:text-blue-600 transition duration-300">联系我们</a></li>
+                    <li><a href="#latest-updates" class="nav-link text-gray-600 hover:text-blue-600 transition duration-300" data-lang-key="navLatestUpdates">最新动态</a></li>
+                    <li><a href="#analysis-insights" class="nav-link text-gray-600 hover:text-blue-600 transition duration-300" data-lang-key="navAnalysisInsights">分析解读</a></li>
+                    <li><a href="#official-statements" class="nav-link text-gray-600 hover:text-blue-600 transition duration-300" data-lang-key="navOfficialStatements">官方声音</a></li>
+                    <li><a href="#community-buzz" class="nav-link text-gray-600 hover:text-blue-600 transition duration-300" data-lang-key="navCommunityBuzz">社区热议</a></li>
+                    <li><a href="#about" class="nav-link text-gray-600 hover:text-blue-600 transition duration-300" data-lang-key="navAbout">关于本站</a></li>
+                    <li><a href="#contact" class="nav-link text-gray-600 hover:text-blue-600 transition duration-300" data-lang-key="navContact">联系我们</a></li>
                 </ul>
             </nav>
         </div>
@@ -97,121 +120,127 @@
 
     <main class="container mx-auto px-6 py-8">
 
-        <section id="latest-updates" class="mb-12 pt-16 -mt-16"> <h2 class="text-3xl font-semibold mb-6 border-l-4 border-blue-500 pl-4">最新动态</h2>
+        <section id="latest-updates" class="mb-12 pt-16 -mt-16">
+            <h2 class="text-3xl font-semibold mb-6 border-l-4 border-blue-500 pl-4" data-lang-key="sectionTitleLatestUpdates">最新动态</h2>
             
             <article class="news-card bg-blue-50 border-blue-200">
-                <h3>OpenAI收购Windsurf事件追踪专题</h3>
-                <p><strong>[2025年5月13日]</strong> 欢迎来到 OpenAI x Windsurf News Hub！近日，科技界高度关注OpenAI对AI公司Windsurf的收购意向（或已确认的收购）。Windsurf以其在高效AI模型推理方面的创新而闻名。本专题旨在实时更新、深度解读并汇集各方观点。我们将持续关注并更新所有相关信息。</p>
-                <div class="meta">分类：最新动态, 官方声音 | <a href="#article-1-details" class="text-blue-500 hover:underline">阅读更多 &raquo;</a></div>
+                <h3 data-lang-key="article1Title">OpenAI收购Windsurf事件追踪专题</h3>
+                <p><strong data-lang-key="article1Date">[2025年5月13日]</strong> <span data-lang-key="article1Intro">欢迎来到 OpenAI x Windsurf News Hub！近日，科技界高度关注OpenAI对AI公司Windsurf的收购意向（或已确认的收购）。Windsurf以其在高效AI模型推理方面的创新而闻名。本专题旨在实时更新、深度解读并汇集各方观点。我们将持续关注并更新所有相关信息。</span></p>
+                <div class="meta"><span data-lang-key="article1MetaCategory">分类：最新动态, 官方声音</span> | <a href="#article-1-details" class="text-blue-500 hover:underline" data-lang-key="article1ReadMore">阅读更多 &raquo;</a></div>
                 <div class="mt-2">
-                    <p><strong>时间线 (持续更新):</strong></p>
+                    <p><strong data-lang-key="timelineTitle">时间线 (持续更新):</strong></p>
                     <ul class="list-disc list-inside ml-4 text-sm text-gray-700">
-                        <li><strong>2025年5月10日:</strong> 首次传出OpenAI洽购Windsurf的消息。</li>
-                        <li><strong>2025年5月13日:</strong> OpenAI官方确认已达成收购Windsurf的协议。</li>
-                        </ul>
+                        <li data-lang-key="timelineItem1"><strong>2025年5月10日:</strong> 首次传出OpenAI洽购Windsurf的消息。</li>
+                        <li data-lang-key="timelineItem2"><strong>2025年5月13日:</strong> OpenAI官方确认已达成收购Windsurf的协议。</li>
+                    </ul>
                 </div>
             </article>
 
             <article class="news-card">
-                <h3>突发：OpenAI正式宣布收购Windsurf – 我们目前所知的一切</h3>
-                <p><strong>[2025年5月13日]</strong> – OpenAI今日通过其官方渠道宣布，已与AI技术公司Windsurf达成最终收购协议。具体财务条款尚未披露。OpenAI表示，收购Windsurf将有助于加速其通用人工智能（AGI）的研究。Windsurf团队将整合进OpenAI的研究部门。</p>
-                <p class="mt-2"><strong>关键看点：</strong>Windsurf的核心技术将如何与OpenAI现有技术栈结合？此次收购对AI行业有何影响？</p>
-                <div class="meta">分类：最新动态, 官方声音 | 消息来源: OpenAI官方博客 | <span class="text-gray-500">发布于: 2小时前</span></div>
+                <h3 data-lang-key="article2Title">突发：OpenAI正式宣布收购Windsurf – 我们目前所知的一切</h3>
+                <p><strong data-lang-key="article2Date">[2025年5月13日]</strong> <span data-lang-key="article2Content">– OpenAI今日通过其官方渠道宣布，已与AI技术公司Windsurf达成最终收购协议。具体财务条款尚未披露。OpenAI表示，收购Windsurf将有助于加速其通用人工智能（AGI）的研究。Windsurf团队将整合进OpenAI的研究部门。</span></p>
+                <p class="mt-2" data-lang-key="article2KeyPoints"><strong>关键看点：</strong>Windsurf的核心技术将如何与OpenAI现有技术栈结合？此次收购对AI行业有何影响？</p>
+                <div class="meta"><span data-lang-key="article2MetaCategory">分类：最新动态, 官方声音</span> | <span data-lang-key="article2Source">消息来源: OpenAI官方博客</span> | <span class="text-gray-500" data-lang-key="article2Published">发布于: 2小时前</span></div>
             </article>
 
             <article class="news-card">
-                <h3>分析师评论：OpenAI收购Windsurf或为布局下一代AI基础设施</h3>
-                <p>多位行业分析师指出，OpenAI此次收购Windsurf，可能不仅仅是为了获取其在AI模型推理方面的技术，更是为了在下一代AI基础设施的竞争中占据有利位置。Windsurf在低功耗AI芯片协同设计方面的积累，可能成为OpenAI构建更高效、更经济的AI计算平台的关键。</p>
-                <div class="meta">分类：最新动态, 分析解读 | 消息来源: Tech Insights Pro | <span class="text-gray-500">发布于: 1小时前</span></div>
+                <h3 data-lang-key="article3Title">分析师评论：OpenAI收购Windsurf或为布局下一代AI基础设施</h3>
+                <p data-lang-key="article3Content">多位行业分析师指出，OpenAI此次收购Windsurf，可能不仅仅是为了获取其在AI模型推理方面的技术，更是为了在下一代AI基础设施的竞争中占据有利位置。Windsurf在低功耗AI芯片协同设计方面的积累，可能成为OpenAI构建更高效、更经济的AI计算平台的关键。</p>
+                <div class="meta"><span data-lang-key="article3MetaCategory">分类：最新动态, 分析解读</span> | <span data-lang-key="article3Source">消息来源: Tech Insights Pro</span> | <span class="text-gray-500" data-lang-key="article3Published">发布于: 1小时前</span></div>
             </article>
 
-            </section>
+        </section>
 
         <section id="analysis-insights" class="mb-12 pt-16 -mt-16">
-            <h2 class="text-3xl font-semibold mb-6 border-l-4 border-green-500 pl-4">分析解读</h2>
+            <h2 class="text-3xl font-semibold mb-6 border-l-4 border-green-500 pl-4" data-lang-key="sectionTitleAnalysis">分析解读</h2>
             
             <article class="news-card">
-                <h3>Windsurf是谁？一家值得OpenAI收购的AI公司简介</h3>
-                <p>Windsurf成立于2020年，由一群前顶级科技公司的AI研究员创立，专注于大规模AI模型的高效推理引擎开发和特定行业AI解决方案。其核心技术包括专有的模型压缩算法和低延迟推理服务框架。据称已服务多家行业头部客户，并获得知名VC机构的两轮投资。</p>
-                <div class="meta">分类：分析解读</div>
+                <h3 data-lang-key="analysis1Title">Windsurf是谁？一家值得OpenAI收购的AI公司简介</h3>
+                <p data-lang-key="analysis1Content">Windsurf成立于2020年，由一群前顶级科技公司的AI研究员创立，专注于大规模AI模型的高效推理引擎开发和特定行业AI解决方案。其核心技术包括专有的模型压缩算法和低延迟推理服务框架。据称已服务多家行业头部客户，并获得知名VC机构的两轮投资。</p>
+                <div class="meta" data-lang-key="analysis1Meta">分类：分析解读</div>
             </article>
 
             <article class="news-card">
-                <h3>初步分析：OpenAI + Windsurf – 对AI技术爱好者和从业者的几点启示</h3>
-                <p>1. <strong>AI基础设施与效率日益重要：</strong> 表明行业核心痛点在于如何经济高效部署大模型。 <br>
-                   2. <strong>通用AI与专用AI的融合：</strong> 强大通用模型与特定场景优化方案结合。 <br>
-                   3. <strong>人才竞争白热化：</strong> 具备工程、优化、行业知识的复合型人才更受青睐。 <br>
-                   4. <strong>AI生态进一步整合：</strong> 大型科技公司通过收购巩固领先地位。 <br>
-                   5. <strong>技术栈演变：</strong> 关注Windsurf技术如何融入OpenAI体系。
+                <h3 data-lang-key="analysis2Title">初步分析：OpenAI + Windsurf – 对AI技术爱好者和从业者的几点启示</h3>
+                <p>
+                   <span data-lang-key="analysis2Point1">1. <strong>AI基础设施与效率日益重要：</strong> 表明行业核心痛点在于如何经济高效部署大模型。</span> <br>
+                   <span data-lang-key="analysis2Point2">2. <strong>通用AI与专用AI的融合：</strong> 强大通用模型与特定场景优化方案结合。</span> <br>
+                   <span data-lang-key="analysis2Point3">3. <strong>人才竞争白热化：</strong> 具备工程、优化、行业知识的复合型人才更受青睐。</span> <br>
+                   <span data-lang-key="analysis2Point4">4. <strong>AI生态进一步整合：</strong> 大型科技公司通过收购巩固领先地位。</span> <br>
+                   <span data-lang-key="analysis2Point5">5. <strong>技术栈演变：</strong> 关注Windsurf技术如何融入OpenAI体系。</span>
                 </p>
-                <div class="meta">分类：分析解读</div>
+                <div class="meta" data-lang-key="analysis2Meta">分类：分析解读</div>
             </article>
-            </section>
+        </section>
 
         <section id="official-statements" class="mb-12 pt-16 -mt-16">
-            <h2 class="text-3xl font-semibold mb-6 border-l-4 border-purple-500 pl-4">官方声音</h2>
+            <h2 class="text-3xl font-semibold mb-6 border-l-4 border-purple-500 pl-4" data-lang-key="sectionTitleOfficial">官方声音</h2>
             <article class="news-card">
-                <h3>OpenAI CEO Sam Altman关于收购Windsurf的声明</h3>
-                <p>“我们非常兴奋地欢迎Windsurf团队加入OpenAI。他们在AI推理优化方面的深厚专业知识将极大地增强我们构建安全和有益的AGI的能力。我们共同期待着推动AI研究的边界。” （内容为模拟）</p>
-                <div class="meta">来源: OpenAI官方博客 | 日期: 2025年5月13日</div>
+                <h3 data-lang-key="official1Title">OpenAI CEO Sam Altman关于收购Windsurf的声明</h3>
+                <p data-lang-key="official1Content">“我们非常兴奋地欢迎Windsurf团队加入OpenAI。他们在AI推理优化方面的深厚专业知识将极大地增强我们构建安全和有益的AGI的能力。我们共同期待着推动AI研究的边界。” （内容为模拟）</p>
+                <div class="meta"><span data-lang-key="official1Source">来源: OpenAI官方博客</span> | <span data-lang-key="official1Date">日期: 2025年5月13日</span></div>
             </article>
             <article class="news-card">
-                <h3>Windsurf创始人关于加入OpenAI的展望</h3>
-                <p>“加入OpenAI对我们来说是一个激动人心的里程碑。我们一直钦佩OpenAI的愿景和成就。整合我们的技术和人才，将使我们能够以前所未有的规模解决更具挑战性的AI问题。” （内容为模拟）</p>
-                <div class="meta">来源: Windsurf官方声明 (假设) | 日期: 2025年5月13日</div>
+                <h3 data-lang-key="official2Title">Windsurf创始人关于加入OpenAI的展望</h3>
+                <p data-lang-key="official2Content">“加入OpenAI对我们来说是一个激动人心的里程碑。我们一直钦佩OpenAI的愿景和成就。整合我们的技术和人才，将使我们能够以前所未有的规模解决更具挑战性的AI问题。” （内容为模拟）</p>
+                <div class="meta"><span data-lang-key="official2Source">来源: Windsurf官方声明 (假设)</span> | <span data-lang-key="official2Date">日期: 2025年5月13日</span></div>
             </article>
-            </section>
+        </section>
 
         <section id="community-buzz" class="mb-12 pt-16 -mt-16">
-            <h2 class="text-3xl font-semibold mb-6 border-l-4 border-yellow-500 pl-4">社区热议</h2>
+            <h2 class="text-3xl font-semibold mb-6 border-l-4 border-yellow-500 pl-4" data-lang-key="sectionTitleCommunity">社区热议</h2>
             <article class="news-card">
-                <h3>Twitter/X 平台观点节选</h3>
+                <h3 data-lang-key="community1Title">Twitter/X 平台观点节选</h3>
                 <blockquote class="border-l-4 border-gray-300 pl-4 italic text-gray-700">
-                    <p>"OpenAI 收购 Windsurf，这是要补齐推理短板，剑指更广泛的企业级应用市场啊！#OpenAI #AI"</p>
-                    <footer class="text-sm mt-2">- @AI_Analyst_Pro</footer>
+                    <p data-lang-key="community1Quote1Text">"OpenAI 收购 Windsurf，这是要补齐推理短板，剑指更广泛的企业级应用市场啊！#OpenAI #AI"</p>
+                    <footer class="text-sm mt-2" data-lang-key="community1Quote1Author">- @AI_Analyst_Pro</footer>
                 </blockquote>
                 <blockquote class="border-l-4 border-gray-300 pl-4 italic text-gray-700 mt-4">
-                    <p>"Windsurf 的技术如果能和 Triton Inference Server 结合起来，那效率提升不可想象。坐等 OpenAI 后续的动作。"</p>
-                    <footer class="text-sm mt-2">- @TechDevGuru</footer>
+                    <p data-lang-key="community1Quote2Text">"Windsurf 的技术如果能和 Triton Inference Server 结合起来，那效率提升不可想象。坐等 OpenAI 后续的动作。"</p>
+                    <footer class="text-sm mt-2" data-lang-key="community1Quote2Author">- @TechDevGuru</footer>
                 </blockquote>
             </article>
             <article class="news-card">
-                <h3>Hacker News / Reddit 讨论摘要</h3>
-                <p>在Hacker News和Reddit的r/artificialintelligence等板块，关于此次收购的讨论主要集中在：Windsurf的具体技术细节、对AI开源社区的潜在影响、以及OpenAI未来的商业化策略等方面。许多评论者对Windsurf团队的技术实力表示认可，并期待看到其技术在OpenAI平台上的应用。</p>
-                <div class="meta">信息来源: Hacker News, Reddit 综合</div>
+                <h3 data-lang-key="community2Title">Hacker News / Reddit 讨论摘要</h3>
+                <p data-lang-key="community2Content">在Hacker News和Reddit的r/artificialintelligence等板块，关于此次收购的讨论主要集中在：Windsurf的具体技术细节、对AI开源社区的潜在影响、以及OpenAI未来的商业化策略等方面。许多评论者对Windsurf团队的技术实力表示认可，并期待看到其技术在OpenAI平台上的应用。</p>
+                <div class="meta" data-lang-key="community2Source">信息来源: Hacker News, Reddit 综合</div>
             </article>
-            </section>
+        </section>
 
         <section id="about" class="mb-12 bg-white p-8 rounded-lg shadow-lg pt-16 -mt-16">
-            <h2 class="text-3xl font-semibold mb-6 text-center">关于 OpenAI x Windsurf News Hub</h2>
+            <h2 class="text-3xl font-semibold mb-6 text-center" data-lang-key="sectionTitleAbout">关于 OpenAI x Windsurf News Hub</h2>
             <div class="max-w-2xl mx-auto text-center text-gray-700 space-y-4">
-                <p>本站 (OpenAI x Windsurf News Hub) 致力于成为追踪 OpenAI 收购 Windsurf 这一重要行业事件的首要信息来源。我们的目标受众是AI从业者、技术爱好者以及关注AI产业发展的投资者和观察家。</p>
-                <p>我们努力提供：</p>
+                <p data-lang-key="aboutIntro">本站 (OpenAI x Windsurf News Hub) 致力于成为追踪 OpenAI 收购 Windsurf 这一重要行业事件的首要信息来源。我们的目标受众是AI从业者、技术爱好者以及关注AI产业发展的投资者和观察家。</p>
+                <p data-lang-key="aboutGoal">我们努力提供：</p>
                 <ul class="list-disc list-inside inline-block text-left">
-                    <li><strong>最新动态：</strong> 快速捕捉并报道与此次收购相关的官方公告、媒体报道和关键进展。</li>
-                    <li><strong>深度分析：</strong> 汇聚行业专家观点，解读收购背后的技术协同、市场影响及战略意图。</li>
-                    <li><strong>全面视角：</strong> 整合来自OpenAI、Windsurf（如适用）的官方信息以及广泛的社区讨论。</li>
+                    <li data-lang-key="aboutGoalItem1"><strong>最新动态：</strong> 快速捕捉并报道与此次收购相关的官方公告、媒体报道和关键进展。</li>
+                    <li data-lang-key="aboutGoalItem2"><strong>深度分析：</strong> 汇聚行业专家观点，解读收购背后的技术协同、市场影响及战略意图。</li>
+                    <li data-lang-key="aboutGoalItem3"><strong>全面视角：</strong> 整合来自OpenAI、Windsurf（如适用）的官方信息以及广泛的社区讨论。</li>
                 </ul>
-                <p>我们相信，及时、准确、有深度的信息对于理解AI行业的快速发展至关重要。感谢您的关注！</p>
-                <p class="text-sm text-gray-500 mt-4">当前日期：<span id="currentDate"></span></p>
+                <p data-lang-key="aboutConclusion">我们相信，及时、准确、有深度的信息对于理解AI行业的快速发展至关重要。感谢您的关注！</p>
+                <p class="text-sm text-gray-500 mt-4"><span data-lang-key="aboutCurrentDateLabel">当前日期：</span><span id="currentDate"></span></p>
             </div>
         </section>
 
         <section id="contact" class="bg-gray-200 py-12 pt-16 -mt-16">
             <div class="container mx-auto px-6 text-center">
-                <h2 class="text-3xl font-semibold mb-6">联系我们</h2>
-                <p class="text-lg text-gray-700 mb-4">如果您有任何关于 OpenAI 收购 Windsurf 事件的新闻线索、分析见解，或希望与我们联系，请发送邮件至：</p>
-                <a href="mailto:ytsgabcde13@2925.com" class="text-xl text-blue-600 hover:text-blue-800 font-semibold">ytsgabcde13@2925.com</a>
+                <h2 class="text-3xl font-semibold mb-6" data-lang-key="sectionTitleContact">联系我们</h2>
+                <p class="text-lg text-gray-700 mb-4" data-lang-key="contactIntro">如果您有任何关于 OpenAI 收购 Windsurf 事件的新闻线索、分析见解，或希望与我们联系，请发送邮件至：</p>
+                <a href="mailto:ytsgabcde13@2925.com" class="text-xl text-blue-600 hover:text-blue-800 font-semibold" data-lang-key="contactEmail">ytsgabcde13@2925.com</a>
                 <p class="mt-2 text-sm text-gray-600"></p>
             </div>
         </section>
     </main>
 
+    <div class="translate-btn-container">
+        <button id="translateToggleBtn" class="translate-btn">Translate to English</button>
+    </div>
+
     <footer class="bg-gray-800 text-white py-8 text-center">
-        <p>&copy; <span id="currentYear"></span> OpenAI x Windsurf News Hub. All Rights Reserved.</p>
+        <p>&copy; <span id="currentYear"></span> <span data-lang-key="footerCopyright">OpenAI x Windsurf News Hub. All Rights Reserved.</span></p>
         <p class="text-sm text-gray-400 mt-1"></p>
         <p class="text-sm text-gray-400 mt-2">
-            <a href="https://beian.miit.gov.cn/" target="_blank" class="footer-link">渝ICP备2025053282号</a>
+            <a href="https://beian.miit.gov.cn/" target="_blank" class="footer-link" data-lang-key="footerICP">渝ICP备2025053282号</a>
         </p>
     </footer>
 
@@ -222,7 +251,8 @@
         // 动态设置当前日期 (用于“关于本站”部分)
         const today = new Date();
         const options = { year: 'numeric', month: 'long', day: 'numeric' };
-        document.getElementById('currentDate').textContent = today.toLocaleDateString('zh-CN', options);
+        // 将根据选定语言动态更新日期显示
+        // document.getElementById('currentDate').textContent = today.toLocaleDateString('zh-CN', options);
 
         // 移动端导航切换
         const mobileNavToggle = document.getElementById('mobileNavToggle');
@@ -241,7 +271,7 @@
             let currentSectionId = '';
             sections.forEach(section => {
                 const sectionTop = section.offsetTop - 100; // 考虑sticky header的高度
-                if (pageYOffset >= sectionTop) {
+                if (window.pageYOffset >= sectionTop) { // 使用 window.pageYOffset
                     currentSectionId = section.getAttribute('id');
                 }
             });
@@ -265,6 +295,142 @@
                 }
             });
         });
+
+        // --- 翻译功能开始 ---
+
+        const translations = {
+            // 页头 Header
+            "headerTitlePart1": { "zh": "OpenAI", "en": "OpenAI" },
+            "headerTitlePart2": { "zh": "Windsurf", "en": "Windsurf" },
+            "headerSubtitle": { "zh": "追踪收购事件的最新动态与深度分析", "en": "Tracking the latest updates and in-depth analysis of the acquisition" },
+            "navLatestUpdates": { "zh": "最新动态", "en": "Latest Updates" },
+            "navAnalysisInsights": { "zh": "分析解读", "en": "Analysis & Insights" },
+            "navOfficialStatements": { "zh": "官方声音", "en": "Official Statements" },
+            "navCommunityBuzz": { "zh": "社区热议", "en": "Community Buzz" },
+            "navAbout": { "zh": "关于本站", "en": "About This Site" },
+            "navContact": { "zh": "联系我们", "en": "Contact Us" },
+
+            // 最新动态 Section
+            "sectionTitleLatestUpdates": { "zh": "最新动态", "en": "Latest Updates" },
+            "article1Title": { "zh": "OpenAI收购Windsurf事件追踪专题", "en": "OpenAI Acquires Windsurf: Event Tracking Hub" },
+            "article1Date": { "zh": "[2025年5月13日]", "en": "[May 13, 2025]" },
+            "article1Intro": { "zh": "欢迎来到 OpenAI x Windsurf News Hub！近日，科技界高度关注OpenAI对AI公司Windsurf的收购意向（或已确认的收购）。Windsurf以其在高效AI模型推理方面的创新而闻名。本专题旨在实时更新、深度解读并汇集各方观点。我们将持续关注并更新所有相关信息。", "en": "Welcome to the OpenAI x Windsurf News Hub! The tech world is closely watching OpenAI's potential (or confirmed) acquisition of AI company Windsurf, known for its innovations in efficient AI model inference. This hub aims to provide real-time updates, in-depth analysis, and a collection of diverse perspectives. We will continuously monitor and update all relevant information." },
+            "article1MetaCategory": { "zh": "分类：最新动态, 官方声音", "en": "Category: Latest Updates, Official Statements" },
+            "article1ReadMore": { "zh": "阅读更多 &raquo;", "en": "Read More &raquo;" },
+            "timelineTitle": { "zh": "时间线 (持续更新):", "en": "Timeline (Continuously Updated):" },
+            "timelineItem1": { "zh": "<strong>2025年5月10日:</strong> 首次传出OpenAI洽购Windsurf的消息。", "en": "<strong>May 10, 2025:</strong> Initial rumors of OpenAI's interest in acquiring Windsurf emerge." },
+            "timelineItem2": { "zh": "<strong>2025年5月13日:</strong> OpenAI官方确认已达成收购Windsurf的协议。", "en": "<strong>May 13, 2025:</strong> OpenAI officially confirms an agreement to acquire Windsurf." },
+
+            "article2Title": { "zh": "突发：OpenAI正式宣布收购Windsurf – 我们目前所知的一切", "en": "BREAKING: OpenAI Officially Announces Acquisition of Windsurf – Everything We Know So Far" },
+            "article2Date": { "zh": "[2025年5月13日]", "en": "[May 13, 2025]" },
+            "article2Content": { "zh": "– OpenAI今日通过其官方渠道宣布，已与AI技术公司Windsurf达成最终收购协议。具体财务条款尚未披露。OpenAI表示，收购Windsurf将有助于加速其通用人工智能（AGI）的研究。Windsurf团队将整合进OpenAI的研究部门。", "en": "– OpenAI announced today via its official channels that it has reached a definitive agreement to acquire AI technology company Windsurf. Specific financial terms were not disclosed. OpenAI stated that the acquisition of Windsurf will help accelerate its research in Artificial General Intelligence (AGI). The Windsurf team will be integrated into OpenAI's research division." },
+            "article2KeyPoints": { "zh": "<strong>关键看点：</strong>Windsurf的核心技术将如何与OpenAI现有技术栈结合？此次收购对AI行业有何影响？", "en": "<strong>Key Takeaways:</strong> How will Windsurf's core technology integrate with OpenAI's existing tech stack? What impact will this acquisition have on the AI industry?" },
+            "article2MetaCategory": { "zh": "分类：最新动态, 官方声音", "en": "Category: Latest Updates, Official Statements" },
+            "article2Source": { "zh": "消息来源: OpenAI官方博客", "en": "Source: OpenAI Official Blog" },
+            "article2Published": { "zh": "发布于: 2小时前", "en": "Published: 2 hours ago" },
+
+            "article3Title": { "zh": "分析师评论：OpenAI收购Windsurf或为布局下一代AI基础设施", "en": "Analyst Commentary: OpenAI's Acquisition of Windsurf Likely a Move to Secure Next-Gen AI Infrastructure" },
+            "article3Content": { "zh": "多位行业分析师指出，OpenAI此次收购Windsurf，可能不仅仅是为了获取其在AI模型推理方面的技术，更是为了在下一代AI基础设施的竞争中占据有利位置。Windsurf在低功耗AI芯片协同设计方面的积累，可能成为OpenAI构建更高效、更经济的AI计算平台的关键。", "en": "Several industry analysts point out that OpenAI's acquisition of Windsurf may not only be for its technology in AI model inference but also to secure a favorable position in the competition for next-generation AI infrastructure. Windsurf's expertise in low-power AI chip co-design could be key for OpenAI to build more efficient and cost-effective AI computing platforms." },
+            "article3MetaCategory": { "zh": "分类：最新动态, 分析解读", "en": "Category: Latest Updates, Analysis & Insights" },
+            "article3Source": { "zh": "消息来源: Tech Insights Pro", "en": "Source: Tech Insights Pro" },
+            // "article3Published" Key was duplicated from article2Published, assuming it's the same for this example or needs a unique one.
+            // For now, I'll keep it as it was in the previous suggestion to avoid making assumptions about content change.
+            "article3Published": { "zh": "发布于: 1小时前", "en": "Published: 1 hour ago" },
+
+
+            // 分析解读 Section
+            "sectionTitleAnalysis": { "zh": "分析解读", "en": "Analysis & Insights" },
+            "analysis1Title": { "zh": "Windsurf是谁？一家值得OpenAI收购的AI公司简介", "en": "Who is Windsurf? An Introduction to the AI Company Worth OpenAI's Acquisition" },
+            "analysis1Content": { "zh": "Windsurf成立于2020年，由一群前顶级科技公司的AI研究员创立，专注于大规模AI模型的高效推理引擎开发和特定行业AI解决方案。其核心技术包括专有的模型压缩算法和低延迟推理服务框架。据称已服务多家行业头部客户，并获得知名VC机构的两轮投资。", "en": "Founded in 2020 by a group of former AI researchers from top tech companies, Windsurf focuses on developing efficient inference engines for large-scale AI models and industry-specific AI solutions. Its core technologies include proprietary model compression algorithms and a low-latency inference service framework. It is said to have served several leading industry clients and received two rounds of funding from well-known VC firms." },
+            "analysis1Meta": { "zh": "分类：分析解读", "en": "Category: Analysis & Insights" },
+
+            "analysis2Title": { "zh": "初步分析：OpenAI + Windsurf – 对AI技术爱好者和从业者的几点启示", "en": "Preliminary Analysis: OpenAI + Windsurf – Key Takeaways for AI Enthusiasts and Practitioners" },
+            "analysis2Point1": { "zh": "1. <strong>AI基础设施与效率日益重要：</strong> 表明行业核心痛点在于如何经济高效部署大模型。", "en": "1. <strong>Growing Importance of AI Infrastructure & Efficiency:</strong> Highlights the industry's core challenge of deploying large models cost-effectively and efficiently." },
+            "analysis2Point2": { "zh": "2. <strong>通用AI与专用AI的融合：</strong> 强大通用模型与特定场景优化方案结合。", "en": "2. <strong>Convergence of General AI & Specialized AI:</strong> Combining powerful general models with solutions optimized for specific scenarios." },
+            "analysis2Point3": { "zh": "3. <strong>人才竞争白热化：</strong> 具备工程、优化、行业知识的复合型人才更受青睐。", "en": "3. <strong>Intensifying Talent Competition:</strong> Hybrid talent with expertise in engineering, optimization, and industry knowledge is highly sought after." },
+            "analysis2Point4": { "zh": "4. <strong>AI生态进一步整合：</strong> 大型科技公司通过收购巩固领先地位。", "en": "4. <strong>Further Consolidation of the AI Ecosystem:</strong> Large tech companies solidify their leading positions through acquisitions." },
+            "analysis2Point5": { "zh": "5. <strong>技术栈演变：</strong> 关注Windsurf技术如何融入OpenAI体系。", "en": "5. <strong>Evolution of Tech Stacks:</strong> Watching how Windsurf's technology will be integrated into the OpenAI ecosystem." },
+            "analysis2Meta": { "zh": "分类：分析解读", "en": "Category: Analysis & Insights" },
+
+            // 官方声音 Section
+            "sectionTitleOfficial": { "zh": "官方声音", "en": "Official Statements" },
+            "official1Title": { "zh": "OpenAI CEO Sam Altman关于收购Windsurf的声明", "en": "Statement from OpenAI CEO Sam Altman on the Acquisition of Windsurf" },
+            "official1Content": { "zh": "“我们非常兴奋地欢迎Windsurf团队加入OpenAI。他们在AI推理优化方面的深厚专业知识将极大地增强我们构建安全和有益的AGI的能力。我们共同期待着推动AI研究的边界。” （内容为模拟）", "en": "\"We are thrilled to welcome the Windsurf team to OpenAI. Their deep expertise in AI inference optimization will significantly enhance our ability to build safe and beneficial AGI. Together, we look forward to pushing the boundaries of AI research.\" (Content is simulated)" },
+            "official1Source": { "zh": "来源: OpenAI官方博客", "en": "Source: OpenAI Official Blog" },
+            "official1Date": { "zh": "日期: 2025年5月13日", "en": "Date: May 13, 2025" },
+
+            "official2Title": { "zh": "Windsurf创始人关于加入OpenAI的展望", "en": "Windsurf Founder's Outlook on Joining OpenAI" },
+            "official2Content": { "zh": "“加入OpenAI对我们来说是一个激动人心的里程碑。我们一直钦佩OpenAI的愿景和成就。整合我们的技术和人才，将使我们能够以前所未有的规模解决更具挑战性的AI问题。” （内容为模拟）", "en": "\"Joining OpenAI is an exciting milestone for us. We have always admired OpenAI's vision and achievements. Integrating our technology and talent will enable us to tackle even more challenging AI problems at an unprecedented scale.\" (Content is simulated)" },
+            "official2Source": { "zh": "来源: Windsurf官方声明 (假设)", "en": "Source: Windsurf Official Statement (Assumed)" },
+            "official2Date": { "zh": "日期: 2025年5月13日", "en": "Date: May 13, 2025" },
+
+            // 社区热议 Section
+            "sectionTitleCommunity": { "zh": "社区热议", "en": "Community Buzz" },
+            "community1Title": { "zh": "Twitter/X 平台观点节选", "en": "Selected Views from Twitter/X Platform" },
+            "community1Quote1Text": { "zh": "\"OpenAI 收购 Windsurf，这是要补齐推理短板，剑指更广泛的企业级应用市场啊！#OpenAI #AI\"", "en": "\"OpenAI acquiring Windsurf, this is to shore up their inference capabilities, aiming for a broader enterprise application market! #OpenAI #AI\"" },
+            "community1Quote1Author": { "zh": "- @AI_Analyst_Pro", "en": "- @AI_Analyst_Pro" },
+            "community1Quote2Text": { "zh": "\"Windsurf 的技术如果能和 Triton Inference Server 结合起来，那效率提升不可想象。坐等 OpenAI 后续的动作。\"", "en": "\"If Windsurf's technology can be combined with Triton Inference Server, the efficiency gains would be unimaginable. Waiting for OpenAI's next move.\"" },
+            "community1Quote2Author": { "zh": "- @TechDevGuru", "en": "- @TechDevGuru" },
+
+            "community2Title": { "zh": "Hacker News / Reddit 讨论摘要", "en": "Hacker News / Reddit Discussion Summary" },
+            "community2Content": { "zh": "在Hacker News和Reddit的r/artificialintelligence等板块，关于此次收购的讨论主要集中在：Windsurf的具体技术细节、对AI开源社区的潜在影响、以及OpenAI未来的商业化策略等方面。许多评论者对Windsurf团队的技术实力表示认可，并期待看到其技术在OpenAI平台上的应用。", "en": "On platforms like Hacker News and Reddit's r/artificialintelligence, discussions about the acquisition primarily focus on: the specific technical details of Windsurf, the potential impact on the AI open-source community, and OpenAI's future commercialization strategies. Many commentators acknowledge the Windsurf team's technical prowess and look forward to seeing its technology applied within the OpenAI platform." },
+            "community2Source": { "zh": "信息来源: Hacker News, Reddit 综合", "en": "Source: Hacker News, Reddit Combined" },
+
+            // 关于本站 Section
+            "sectionTitleAbout": { "zh": "关于 OpenAI x Windsurf News Hub", "en": "About OpenAI x Windsurf News Hub" },
+            "aboutIntro": { "zh": "本站 (OpenAI x Windsurf News Hub) 致力于成为追踪 OpenAI 收购 Windsurf 这一重要行业事件的首要信息来源。我们的目标受众是AI从业者、技术爱好者以及关注AI产业发展的投资者和观察家。", "en": "This site (OpenAI x Windsurf News Hub) is dedicated to being the premier source of information for tracking the significant industry event of OpenAI's acquisition of Windsurf. Our target audience includes AI practitioners, technology enthusiasts, and investors and observers focusing on AI industry development." },
+            "aboutGoal": { "zh": "我们努力提供：", "en": "We strive to provide:" },
+            "aboutGoalItem1": { "zh": "<strong>最新动态：</strong> 快速捕捉并报道与此次收购相关的官方公告、媒体报道和关键进展。", "en": "<strong>Latest Updates:</strong> Quickly capture and report official announcements, media coverage, and key developments related to this acquisition." },
+            "aboutGoalItem2": { "zh": "<strong>深度分析：</strong> 汇聚行业专家观点，解读收购背后的技术协同、市场影响及战略意图。", "en": "<strong>In-depth Analysis:</strong> Gather expert opinions to interpret the technological synergy, market impact, and strategic intent behind the acquisition." },
+            "aboutGoalItem3": { "zh": "<strong>全面视角：</strong> 整合来自OpenAI、Windsurf（如适用）的官方信息以及广泛的社区讨论。", "en": "<strong>Comprehensive Perspective:</strong> Consolidate official information from OpenAI, Windsurf (if applicable), and broad community discussions." },
+            "aboutConclusion": { "zh": "我们相信，及时、准确、有深度的信息对于理解AI行业的快速发展至关重要。感谢您的关注！", "en": "We believe that timely, accurate, and in-depth information is crucial for understanding the rapid development of the AI industry. Thank you for your attention!" },
+            "aboutCurrentDateLabel": { "zh": "当前日期：", "en": "Current Date:" },
+
+            // 联系我们 Section
+            "sectionTitleContact": { "zh": "联系我们", "en": "Contact Us" },
+            "contactIntro": { "zh": "如果您有任何关于 OpenAI 收购 Windsurf 事件的新闻线索、分析见解，或希望与我们联系，请发送邮件至：", "en": "If you have any news leads, analytical insights regarding the OpenAI acquisition of Windsurf, or wish to contact us, please send an email to:" },
+            "contactEmail": { "zh": "ytsgabcde13@2925.com", "en": "ytsgabcde13@2925.com" },
+
+            // 页脚 Footer
+            "footerCopyright": { "zh": "OpenAI x Windsurf News Hub. All Rights Reserved.", "en": "OpenAI x Windsurf News Hub. All Rights Reserved." },
+            "footerICP": { "zh": "渝ICP备2025053282号", "en": "Yu ICP Bei 2025053282" }
+        };
+
+        let currentLanguage = 'zh'; // 默认语言中文
+        const translateToggleBtn = document.getElementById('translateToggleBtn');
+        const currentDateEl = document.getElementById('currentDate');
+
+        function updateCurrentDateDisplay() {
+            const today = new Date();
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            const locale = currentLanguage === 'zh' ? 'zh-CN' : 'en-US';
+            if (currentDateEl) { // 确保元素存在
+                 currentDateEl.textContent = today.toLocaleDateString(locale, options);
+            }
+        }
+
+        function applyTranslations() {
+            document.querySelectorAll('[data-lang-key]').forEach(element => {
+                const key = element.getAttribute('data-lang-key');
+                if (translations[key] && translations[key][currentLanguage]) {
+                    element.innerHTML = translations[key][currentLanguage];
+                }
+            });
+            document.documentElement.lang = currentLanguage === 'zh' ? 'zh-CN' : 'en';
+            translateToggleBtn.textContent = currentLanguage === 'zh' ? 'Translate to English' : '翻译成中文';
+            updateCurrentDateDisplay(); // 更新日期显示语言
+        }
+
+        translateToggleBtn.addEventListener('click', () => {
+            currentLanguage = currentLanguage === 'zh' ? 'en' : 'zh';
+            applyTranslations();
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            applyTranslations(); // 初始加载时应用翻译并设置日期
+        });
+
+        // --- 翻译功能结束 ---
 
     </script>
 
