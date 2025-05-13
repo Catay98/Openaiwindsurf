@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en"> {/* Changed default lang attribute */}
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OpenAI 收购 Windsurf 资讯中心</title>
+    <title>Latest news on OpenAI's acquisition of Windsurf</title> {/* Changed title */}
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -71,9 +71,9 @@
         /* 翻译切换按钮样式 */
         .translate-btn-container {
             position: fixed;
-            bottom: 20px;
+            top: 20px;  /* Changed from bottom to top */
             right: 20px;
-            z-index: 100;
+            z-index: 1000; /* Increased z-index to ensure it's above most elements, including sticky header */
         }
         .translate-btn {
             background-color: #2563eb; /* 蓝色 */
@@ -233,7 +233,7 @@
     </main>
 
     <div class="translate-btn-container">
-        <button id="translateToggleBtn" class="translate-btn">Translate to English</button>
+        <button id="translateToggleBtn" class="translate-btn">Translate to Chinese</button> {/* Button text will be updated by JS */}
     </div>
 
     <footer class="bg-gray-800 text-white py-8 text-center">
@@ -248,12 +248,6 @@
         // 动态设置当前年份
         document.getElementById('currentYear').textContent = new Date().getFullYear();
         
-        // 动态设置当前日期 (用于“关于本站”部分)
-        const today = new Date();
-        const options = { year: 'numeric', month: 'long', day: 'numeric' };
-        // 将根据选定语言动态更新日期显示
-        // document.getElementById('currentDate').textContent = today.toLocaleDateString('zh-CN', options);
-
         // 移动端导航切换
         const mobileNavToggle = document.getElementById('mobileNavToggle');
         const mainNav = document.querySelector('.main-nav');
@@ -271,7 +265,7 @@
             let currentSectionId = '';
             sections.forEach(section => {
                 const sectionTop = section.offsetTop - 100; // 考虑sticky header的高度
-                if (window.pageYOffset >= sectionTop) { // 使用 window.pageYOffset
+                if (window.pageYOffset >= sectionTop) { 
                     currentSectionId = section.getAttribute('id');
                 }
             });
@@ -285,9 +279,8 @@
         }
         
         window.addEventListener('scroll', activateNavLink);
-        window.addEventListener('load', activateNavLink); // 页面加载时也执行一次
+        window.addEventListener('load', activateNavLink); 
 
-        // 点击导航链接后关闭移动端菜单 (如果打开)
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
                 if (mainNav && mainNav.classList.contains('open')) {
@@ -333,8 +326,6 @@
             "article3Content": { "zh": "多位行业分析师指出，OpenAI此次收购Windsurf，可能不仅仅是为了获取其在AI模型推理方面的技术，更是为了在下一代AI基础设施的竞争中占据有利位置。Windsurf在低功耗AI芯片协同设计方面的积累，可能成为OpenAI构建更高效、更经济的AI计算平台的关键。", "en": "Several industry analysts point out that OpenAI's acquisition of Windsurf may not only be for its technology in AI model inference but also to secure a favorable position in the competition for next-generation AI infrastructure. Windsurf's expertise in low-power AI chip co-design could be key for OpenAI to build more efficient and cost-effective AI computing platforms." },
             "article3MetaCategory": { "zh": "分类：最新动态, 分析解读", "en": "Category: Latest Updates, Analysis & Insights" },
             "article3Source": { "zh": "消息来源: Tech Insights Pro", "en": "Source: Tech Insights Pro" },
-            // "article3Published" Key was duplicated from article2Published, assuming it's the same for this example or needs a unique one.
-            // For now, I'll keep it as it was in the previous suggestion to avoid making assumptions about content change.
             "article3Published": { "zh": "发布于: 1小时前", "en": "Published: 1 hour ago" },
 
 
@@ -396,15 +387,16 @@
             "footerICP": { "zh": "渝ICP备2025053282号", "en": "Yu ICP Bei 2025053282" }
         };
 
-        let currentLanguage = 'zh'; // 默认语言中文
+        let currentLanguage = 'en'; // Changed default language to English
         const translateToggleBtn = document.getElementById('translateToggleBtn');
         const currentDateEl = document.getElementById('currentDate');
 
         function updateCurrentDateDisplay() {
             const today = new Date();
             const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            // Use 'en-US' for English and 'zh-CN' for Chinese date formatting
             const locale = currentLanguage === 'zh' ? 'zh-CN' : 'en-US';
-            if (currentDateEl) { // 确保元素存在
+            if (currentDateEl) { 
                  currentDateEl.textContent = today.toLocaleDateString(locale, options);
             }
         }
@@ -416,9 +408,11 @@
                     element.innerHTML = translations[key][currentLanguage];
                 }
             });
-            document.documentElement.lang = currentLanguage === 'zh' ? 'zh-CN' : 'en';
+            // Update HTML lang attribute based on currentLanguage
+            document.documentElement.lang = currentLanguage; // 'en' or 'zh' (could be 'zh-CN' for more specificity if preferred)
+            // Update button text based on current language
             translateToggleBtn.textContent = currentLanguage === 'zh' ? 'Translate to English' : '翻译成中文';
-            updateCurrentDateDisplay(); // 更新日期显示语言
+            updateCurrentDateDisplay(); 
         }
 
         translateToggleBtn.addEventListener('click', () => {
@@ -427,7 +421,7 @@
         });
 
         document.addEventListener('DOMContentLoaded', () => {
-            applyTranslations(); // 初始加载时应用翻译并设置日期
+            applyTranslations(); 
         });
 
         // --- 翻译功能结束 ---
